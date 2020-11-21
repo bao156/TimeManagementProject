@@ -186,8 +186,8 @@ tbody tr {
 	<div class="form-popup" id="myForm">
 		<form action="/remind" method="get" class="form-container">
 			<h1>Lời nhắn</h1>
-			<textarea name="" id="" cols="37" rows="10"></textarea>
-			<button type="submit" class="btn">Gửi</button>
+			<textarea name=""  id="message1"  cols="37" rows="10"></textarea>
+			<button type="submit" class="btn" onclick="notify()">Gửi</button>
 			<button type="button" class="btn cancel" onclick="closeForm()">Đóng</button>
 		</form>
 	</div>
@@ -234,11 +234,11 @@ tbody tr {
 		} else param5 = "Đang hoạt động";
 		cell5.innerHTML = param5;
 
-		if (false) {
+		if (param5.trim()!="Đang hoạt động") {
 			var query = '<button type="button" disabled>Nhắc nhở</button>' + '<button type="button"  disabled>Tắt máy</button>';
 		} else {
 
-			var query = '<button type="button"  onclick="notify()">Nhắc nhở</button>' + '<button type="button" id="clickRow" onclick="shutDown()">Tắt máy</button>';
+			var query = '<button type="button"  onclick="openForm()">Nhắc nhở</button>' + '<button type="button" id="clickRow" onclick="shutDown()">Tắt máy</button>';
 
 		}
 		cell6.innerHTML = query;
@@ -254,14 +254,16 @@ tbody tr {
 	function shutDown(){
 		alert('To shutdown');
 		$.get('shutDown', {}, function (data) {
-			alert("Shut down ok");
+			alert("Completed");
 		});
 		
 	};
 
 	function notify(){
-		$.post('notify', {notifyStr: "Binh vip 123 "}, function (data) {
-			alert("Shut down ok");
+		var message=document.getElementById("message1").value;
+		$.post('notify', {notifyStr: message}, function (data) {
+			alert("Sending's completed");
+			document.getElementById("myForm").style.display = "none";
 		});
 	}
 
