@@ -104,7 +104,8 @@
 			position: fixed;
 			bottom: 0;
 			right: 15px;
-			border: 3px solid #f1f1f1;
+			border-radius: 30px;
+			border: 3px solid gray;
 			z-index: 9;
 		}
 
@@ -134,7 +135,8 @@
 
 		/* Set a style for the submit/login button */
 		.form-container .btn {
-			background-color: #4CAF50;
+			background-color:rgb(16, 50, 51);
+			border-radius: 10px;
 			color: white;
 			padding: 16px 20px;
 			border: none;
@@ -146,13 +148,14 @@
 
 		/* Add a red background color to the cancel button */
 		.form-container .cancel {
-			background-color: red;
+			background-color:rgb(16, 50, 51);
 		}
 
 		/* Add some hover effects to buttons */
 		.form-container .btn:hover,
 		.open-button:hover {
 			opacity: 1;
+			background-color:black;
 		}
 	</style>
 	<meta charset="utf-8">
@@ -237,7 +240,7 @@
 		} else param5 = "Đang hoạt động";
 		cell5.innerHTML = param5;
 
-		if (false) {
+		if (param5.trim()!="Đang hoạt động") {
 			var query = '<button type="button" disabled>Nhắc nhở</button>' + '<button type="button"  disabled>Tắt máy</button>';
 		} else {
 
