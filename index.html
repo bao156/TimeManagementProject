@@ -184,7 +184,7 @@ tbody tr {
 
 	</table>
 	<div class="form-popup" id="myForm">
-		<form action="/remind" method="get" class="form-container">
+		<form  method="get" class="form-container">
 			<h1>Lời nhắn</h1>
 			<textarea name=""  id="message1"  cols="37" rows="10"></textarea>
 			<button type="submit" class="btn" onclick="notify()">Gửi</button>
@@ -261,10 +261,10 @@ tbody tr {
 
 	function notify(){
 		var message=document.getElementById("message1").value;
-		$.post('notify', {notifyStr: message}, function (data) {
-			alert("Sending's completed");
+		//$.post('notify', {notifyStr: message}, function (data) {
+			alert(message);
 			document.getElementById("myForm").style.display = "none";
-		});
+		//});
 	}
 
 	
