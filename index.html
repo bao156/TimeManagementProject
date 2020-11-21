@@ -258,10 +258,16 @@
 
 	
 	function shutDown(){
-		alert('To shutdown');
-		$.get('shutDown', {}, function (data) {
-			alert("Shut down ok");
-		});
+		//alert('To shutdown');
+		//$.get('shutDown', {}, function (data) {
+			//alert("Shut down ok");
+		//});
+		var end = document.getElementById("end").value;
+		var total = document.getElementById("total").value;
+		var rq = 'end?endTime=' + end.trim() + '&totalTime=' + total.trim();
+			$.get(rq, {}, function (data) {
+				location.reload();
+			});
 		
 	};
 
