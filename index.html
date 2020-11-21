@@ -169,17 +169,17 @@ tbody tr {
 
 <body onload="startTime()">
 	<h1>THÔNG BÁO THỜI GIAN SỬ DỤNG MÁY TÍNH</h1>
-	<table class="table table-hover" id="myTable">
-		<tr>
-			<th>Ngày</th>
-			<th>Giờ Bắt Đầu</th>
-			<th onload="startTime()">Giờ Kết Thúc</th>
-			<th id="">Thời Gian Sử Dụng</th>
-			<th>Trạng Thái</th>
-			<th>Chức năng</th>
-			<input id="dataHidden" type="hidden" value="">
-			<input id="end" type="hidden" value="">
-			<input id="total" type="hidden" value="">
+	<table class="table table-hover" id="myTable" >
+			<tr>
+				<th style="background: #555; color: #ddd;">Ngày</th>
+				<th style="background: #555; color: #ddd;">Giờ Bắt Đầu</th>
+				<th onload="startTime()" style="background: #555; color: #ddd;">Giờ Kết Thúc</th>
+				<th id="" style="background: #555; color: #ddd;">Thời Gian Sử Dụng</th>
+				<th style="background: #555; color: #ddd;">Trạng Thái</th>
+				<th style="background: #555; color: #ddd;">Chức năng</th>
+				<input id="dataHidden" type="hidden" value="" >
+				<input id="end" type="hidden" value="">
+				<input id="total" type="hidden" value="">
 		</tr>
 
 	</table>
@@ -192,13 +192,6 @@ tbody tr {
 		</form>
 	</div>
 	<hr>
-	<h2>CÀI ĐẶT THỜI GIAN SỬ DỤNG MÁY TÍNH</h2>
-	<form action="/setTime" method="post">
-		<input size="5" id="hours" name="hours" type="text" placeholder="Hours" value=""/> :
-		<input size="5" id="minutes" name="minutes" type="text" placeholder="Minute" value=""/> :
-		<input size="5" id="seconds" name="seconds" type="text" placeholder="Second" value="" />
-		<th> <input class="button" type="submit" value="Submit" /> </th>
-	</form>
 </body>
 
 <script>
