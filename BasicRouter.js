@@ -72,7 +72,7 @@ router.get('/end', function (req, res) {
 
   var endTime = req.query.endTime;
   var totalTime = req.query.totalTime;
-
+  alert(endTime+' '+totalTime);
   var data = fs.readFileSync('data.txt');
   var array = data.toString().split('\n');
 
