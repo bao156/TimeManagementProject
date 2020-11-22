@@ -64,7 +64,7 @@ router.get('/start', function (req, res) {
     if (error)
         console.error(error.message);
   });
-
+  location.reload();
   res.redirect('/index');
 });
 
