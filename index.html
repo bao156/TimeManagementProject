@@ -225,7 +225,7 @@
 			param3 = "<p id='runningTime' style='margin-top: 0px;margin-bottom: 0px;'></p>";
 
 		}
-		cell3.innerHTML = param3;
+		//cell3.innerHTML = param3;
 		if (param5.trim() != "end") {
 			param4 = "<p id='totalTime' style='margin-top: 0px;margin-bottom: 0px;'></p>";
 
@@ -233,12 +233,12 @@
 			document.getElementById('dataHidden').value = dateParts[1] + "/" + dateParts[0] + "/" + dateParts[2] + " " + param2;
 		}
 
-		cell4.innerHTML = param4;
+		cell3.innerHTML = param4;
 
 		if (param5.trim() == "end") {
 			param5 = "Kết thúc";
 		} else param5 = "Đang hoạt động";
-		cell5.innerHTML = param5;
+		cell4.innerHTML = param5;
 
 		if (param5.trim()!="Đang hoạt động") {
 			var query = '<button type="button" disabled>Nhắc nhở</button>' + '<button type="button"  disabled>Tắt máy</button>';
@@ -247,7 +247,7 @@
 			var query = '<button type="button"  onclick="openForm()">Nhắc nhở</button>' + '<button type="button" id="#clickRow" onclick="shutDown()">Tắt máy</button>';
 
 		}
-		cell6.innerHTML = query;
+		cell5.innerHTML = query;
 	}
 	$.get('data', {}, function (data) {
 		for (i in data) {
@@ -258,25 +258,25 @@
 
 	
 	function shutDown(){
-		//alert('To shutdown');
-		//$.get('shutDown', {}, function (data) {
-			//alert("Shut down ok");
-		//});
+		$.get('shutDown', {}, function (data) {
+			alert("Completed!");
+		});
 		var end = document.getElementById("end").value;
 		var total = document.getElementById("total").value;
 		var rq = 'end?endTime=' + end.trim() + '&totalTime=' + total.trim();
-			$.get(rq, {}, function (data) {
-				location.reload();
-			});
+		$.get(rq, {}, function (data)
+		{
+			location.reload();
+		});
 		
 	};
 
 	function notify(){
 		var message=document.getElementById("message1").value;
-		//$.post('notify', {notifyStr: "Binh vip 123 "}, function (data) {
+		$.post('notify', {notifyStr: message}, function (data) {
 			alert(message);
 			document.getElementById("myForm").style.display = "none";
-		//});
+		});
 	}
 
 	
